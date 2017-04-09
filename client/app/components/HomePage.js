@@ -1,45 +1,31 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import range from 'lodash/range'
 import classNames from 'classnames'
+import { fetchProducts } from '../actions/homePage'
 import Product from './Product'
 
-export default class extends React.Component {
-  constructor(props) {
-    super(props)
-
-    this.state = { products: [], currentPage: 1, pages: 0 }
-
-    this.fetchProducts = this.fetchProducts.bind(this)
-  }
-
-  fetchProducts(page) {
-    fetch(`/api/v1/products?page=${page}&per_page=12`)
-      .then(response => response.json())
-      .then(({ products, current_page: currentPage, pages }) => {
-        this.setState({ products, currentPage, pages })
-      })
-  }
-
+class HomePage extends React.Component {
   componentDidMount() {
-    this.fetchProducts(1)
+    this.props.fetchProducts(1)
   }
 
   render() {
     return (
       <div>
         <div id="products" className="row">
-          {this.state.products.map(product => (
+          {this.props.products.map(product => (
             <Product key={product.id} product={product} />
           ))}
         </div>
 
         <ul className="pagination">
-          {range(1, this.state.pages + 1).map(page => (
+          {range(1, this.props.pages + 1).map(page => (
             <li
               key={page}
-              className={classNames('page', { active: this.state.currentPage === page })}
+              className={classNames('page', { active: this.props.currentPage === page })}
             >
-              <a onClick={() => { this.fetchProducts(page) }}>
+              <a onClick={() => { this.props.fetchProducts(page) }}>
                 {page}
               </a>
             </li>
@@ -49,3 +35,15 @@ export default class extends React.Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  products: state.homePage.products,
+  currentPage: state.homePage.currentPage,
+  pages: state.homePage.pages
+})
+
+const mapDispatchToProps = dispatch => ({
+  fetchProducts: page => { dispatch(fetchProducts(page)) }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage)
