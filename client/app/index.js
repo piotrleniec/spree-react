@@ -1,4 +1,4 @@
 import ReactOnRails from 'react-on-rails'
-import HomePage from './components/HomePage'
+import App from './components/App'
 
-ReactOnRails.register({ HomePage })
+ReactOnRails.register({ App })
