@@ -85,14 +85,12 @@ config.module.rules.push(
       {
         loader: 'sass-loader'
       },
-/*
       {
         loader: 'sass-resources-loader',
         options: {
-          resources: './app/assets/styles/app-variables.scss'
+          resources: './app/app-variables.scss'
         },
       }
-*/
     ],
   },
   {
