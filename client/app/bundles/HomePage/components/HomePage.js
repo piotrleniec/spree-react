@@ -1,4 +1,5 @@
 import React from 'react'
+import Product from './Product'
 
 export default class extends React.Component {
   constructor(props) {
@@ -17,11 +18,9 @@ export default class extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="products" className="row">
         {this.state.products.map(product => (
-          <div>
-            {JSON.stringify(product)}
-          </div>
+          <Product key={product.id} product={product} />
         ))}
       </div>
     )
