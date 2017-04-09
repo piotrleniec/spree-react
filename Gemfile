@@ -57,3 +57,8 @@ gem 'pg'
 gem 'spree', '~> 3.2.0'
 gem 'spree_auth_devise', '~> 3.2.0.beta'
 gem 'spree_gateway', '~> 3.2.0.beta'
+
+gem 'react_on_rails', '~> 6'
+
+gem 'mini_racer', platforms: :ruby
+gem 'foreman'
