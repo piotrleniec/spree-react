@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
+import homePage from './homePage'
 
 export default combineReducers({
-  alwaysNull: () => null
+  homePage
 })
