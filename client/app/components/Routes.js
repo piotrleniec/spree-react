@@ -2,7 +2,7 @@ import React from 'react'
 import { ConnectedRouter  } from 'react-router-redux'
 import { Route } from 'react-router'
 import history from '../history'
-import HomePage from './HomePage'
+import HomePage from '../containers/HomePage'
 
 export default () => (
   <ConnectedRouter history={history}>
