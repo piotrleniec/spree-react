@@ -2,12 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 import range from 'lodash/range'
 import classNames from 'classnames'
+import { push } from 'react-router-redux'
 import { fetchProducts } from '../actions/homePage'
 import Product from './Product'
 
 class HomePage extends React.Component {
   componentDidMount() {
-    this.props.fetchProducts(1)
+    this.props.fetchProducts(this.props.currentPage)
   }
 
   render() {
@@ -36,14 +37,20 @@ class HomePage extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  products: state.homePage.products,
-  currentPage: state.homePage.currentPage,
-  pages: state.homePage.pages
-})
+const mapStateToProps = state => {
+  const queryString = state.router.location.search
+  const params = new URLSearchParams(queryString)
 
-const mapDispatchToProps = dispatch => ({
-  fetchProducts: page => { dispatch(fetchProducts(page)) }
+  return {
+    products: state.homePage.products,
+    currentPage: parseInt(params.get('page'), 10) || 1,
+    pages: state.homePage.pages
+  }
+}
+
+const mapDispatchToProps = ({
+  fetchProducts,
+  push
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage)
