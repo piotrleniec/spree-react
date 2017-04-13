@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import range from 'lodash/range'
 import classNames from 'classnames'
 import { push } from 'react-router-redux'
-import { fetchProducts } from '../actions/homePage'
+import { fetchProducts, fetchProductsAndNavigateToPage } from '../actions/homePage'
 import Product from './Product'
 
 class HomePage extends React.Component {
@@ -26,7 +26,7 @@ class HomePage extends React.Component {
               key={page}
               className={classNames('page', { active: this.props.currentPage === page })}
             >
-              <a onClick={() => { this.props.fetchProducts(page) }}>
+              <a onClick={() => { this.props.fetchProductsAndNavigateToPage(page) }}>
                 {page}
               </a>
             </li>
@@ -50,6 +50,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = ({
   fetchProducts,
+  fetchProductsAndNavigateToPage,
   push
 })
 
