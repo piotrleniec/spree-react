@@ -2,12 +2,12 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import DevTools from './DevTools'
 import store from '../store'
-import HomePage from './HomePage'
+import Routes from './Routes'
 
 export default () => (
   <Provider store={store}>
     <div>
-      <HomePage />
+      <Routes />
       <DevTools />
     </div>
   </Provider>
