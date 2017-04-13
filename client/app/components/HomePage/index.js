@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import range from 'lodash/range'
 import classNames from 'classnames'
 import { push } from 'react-router-redux'
-import { fetchProducts, fetchProductsAndNavigateToPage } from '../actions/homePage'
+import { fetchProducts, fetchProductsAndNavigateToPage } from '../../actions/homePage'
 import Product from './Product'
 
 class HomePage extends React.Component {
