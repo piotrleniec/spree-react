@@ -24,6 +24,10 @@ module.exports = {
     alias: {
       images: path.join(process.cwd(), 'app', 'assets', 'images'),
     },
+    modules: [
+      path.resolve(__dirname, 'app'),
+      'node_modules'
+    ]
   },
 
   plugins: [
