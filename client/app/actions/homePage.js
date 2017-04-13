@@ -1,5 +1,5 @@
 import { push } from 'react-router-redux'
-import { SET_PRODUCTS } from '../actionTypes'
+import { SET_PRODUCTS } from 'actionTypes'
 
 const setProducts = (products, pages) => ({
   type: SET_PRODUCTS,

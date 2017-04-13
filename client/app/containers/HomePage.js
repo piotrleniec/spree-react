@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import HomePageComponent from '../components/HomePage'
-import { fetchProducts, fetchProductsAndNavigateToPage } from '../actions/homePage'
+import HomePageComponent from 'components/HomePage'
+import { fetchProducts, fetchProductsAndNavigateToPage } from 'actions/homePage'
 
 class HomePageContainer extends React.Component {
   componentDidMount() {
