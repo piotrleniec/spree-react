@@ -7,8 +7,11 @@ services:
   rails:
     build:
       context: .
+      dockerfile: Dockerfile
     restart: always
   nginx:
-    image: nginx:1.11.13
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
     ports:
       - 80:80
