@@ -11,6 +11,8 @@ services:
     restart: always
     volumes:
       - assets:/srv/public/assets
+    environment:
+      - SECRET_KEY_BASE
   nginx:
     build:
       context: .
