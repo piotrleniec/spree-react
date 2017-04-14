@@ -11,6 +11,10 @@ test:
   <<: *default
   database: spree_react_test
 
+build:
+  adapter: sqlite3
+  database: db/build.sqlite3
+
 production:
   <<: *default
   host: postgres
