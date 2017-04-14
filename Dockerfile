@@ -25,6 +25,5 @@ RUN RAILS_ENV=build rails assets:precompile
 RUN rm db/build.sqlite3
 
 ENV RAILS_ENV production
-ENV SECRET_KEY_BASE 755f97ec69b9f4b3766b284494065c2f8bc1629c8f587e5fa1409c41b423119befb2de1a3e2182fb59cd650be2145aa8d70e3c7f155e2e37d077e86dcee8be0c
 
 CMD ["rails", "s"]
