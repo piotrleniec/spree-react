@@ -9,9 +9,13 @@ services:
       context: .
       dockerfile: Dockerfile
     restart: always
+    volumes:
+      - assets:/srv/public/assets
   nginx:
     build:
       context: .
       dockerfile: Dockerfile.nginx
+    volumes:
+      - assets:/srv/public/assets
     ports:
       - 80:80
