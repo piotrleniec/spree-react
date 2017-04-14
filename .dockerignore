@@ -1,0 +1,6 @@
+.git
+client/node_modules
+log/*
+node_modules
+public/spree
+tmp/*
