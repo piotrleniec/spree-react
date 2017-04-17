@@ -1,0 +1,14 @@
+machine:
+  node:
+    version: 6.10.2
+
+dependencies:
+  override:
+    - bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
+    - yarn
+  cache_directories:
+    - /home/ubuntu/spree-react/client/node_modules
+
+test:
+  override:
+    - echo
